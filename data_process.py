@@ -145,8 +145,13 @@ def read(path):
         for i in range(len(list_sent)):
             sentence = ' '.join(list_sent[i])
             l = list_label[i]
+            # manual + fasttext
             manual_feat = extract(sentence.split())
+
+            # character encoding
             char_list = sent_to_char(sentence.split())
+
+            # phobert embedding
             sentence = extract_bert(sentence)
             sentence = np.hstack((sentence, manual_feat, char_list))
             pad_len = SENT_LENGTH - len(l)

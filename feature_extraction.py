@@ -149,6 +149,14 @@ def has_keywords(s):
             return True
     return False
 def extract(tok_list):
+    '''
+    Extract and concat manual features with fasttext
+    Args:
+        tok_list: list of tokens
+
+    Returns:
+
+    '''
     feat = []
     for tok in tok_list:
         ftext = model[tok]
